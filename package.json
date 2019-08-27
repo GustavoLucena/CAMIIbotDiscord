@@ -1,0 +1,16 @@
+{
+  "name": "camii",
+  "version": "1.0.0",
+  "description": "Camii bot",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gustavo Lucena",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.5.1",
+    "request": "^2.88.0"
+  }
+}

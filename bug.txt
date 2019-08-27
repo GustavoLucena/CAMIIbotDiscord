@@ -1,0 +1,10 @@
+Mzc2MTA4MjM2MDk4NzY0ODAw.XWWxkg.FmlxDkUOatWFNn08XWhMM2GYaHE
+
+
+add bot ao servidor
+https://discordapp.com/oauth2/authorize?&client_id=CLIENTID&scope=bot&permissions=8
+
+376108236098764800
+
+https://discordapp.com/oauth2/authorize?&client_id=376108236098764800&scope=bot&permissions=8
+
