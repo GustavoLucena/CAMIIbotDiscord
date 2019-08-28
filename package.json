@@ -1,16 +1,22 @@
 {
   "name": "camii",
   "version": "1.0.0",
-  "description": "Camii bot",
+  "description": "bot",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Gustavo Lucena",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GustavoLucena/CAMIIbotDiscord.git"
+  },
+  "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GustavoLucena/CAMIIbotDiscord/issues"
+  },
+  "homepage": "https://github.com/GustavoLucena/CAMIIbotDiscord#readme",
   "dependencies": {
-    "discord.js": "^11.5.1",
-    "request": "^2.88.0"
+    "discord.js": "^11.5.1"
   }
 }
