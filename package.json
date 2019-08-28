@@ -4,19 +4,9 @@
   "description": "bot",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node bot.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/GustavoLucena/CAMIIbotDiscord.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/GustavoLucena/CAMIIbotDiscord/issues"
-  },
-  "homepage": "https://github.com/GustavoLucena/CAMIIbotDiscord#readme",
   "dependencies": {
     "discord.js": "^11.5.1",
     "request": "^2.88.0"
