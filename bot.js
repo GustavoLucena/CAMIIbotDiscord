@@ -6,7 +6,9 @@ var url = "https://kamiii.000webhostapp.com/API/anime/listaAnimesEp.php";
 //Logando no bot
 const bot = new Discord.Client();
 bot.login(process.env.BOT_TOKEN);
-//bot.login('Mzc2MTA4MjM2MDk4NzY0ODAw.XXeoFw.QgdubESBBUohWAOt2iOLpvp8Pz8');
+//bot.login('Mzc2MTA4MjM2MDk4NzY0ODAw.XXlIjw.8J8KCUbFhoJrWskl5hHunCSYg_4');
+
+
 
 //quando ficar pronto
 bot.once('ready',() =>{ 
@@ -14,7 +16,8 @@ bot.once('ready',() =>{
 });
 
 //bot monitorando
-bot.on('message', msg =>{
+bot.on('message', async msg =>{
+    //console.log(msg)
     if(msg.content.includes("+camii")){
 
         /* ### NEW CARGO */
@@ -34,8 +37,7 @@ bot.on('message', msg =>{
                         //msg.reply("cargo Adcionado!");
                  }
                 )
-                .catch(console.error)
-                
+                .catch(console.error)   
             }
             return;
         }
@@ -58,11 +60,34 @@ bot.on('message', msg =>{
         }
 
 
-        /* ### CAMII CRIANDO CARGO */
-        if(msg.content.includes("cc")){
+        /* ### CAMII CRIANDO CARGO e Mensagem de Add Cargo */
+        if(msg.content.includes("adm")){
+            const cargo = msg.content.replace("+camii adm","").trim();
+            if(cargo != ""){
+
+                const txt = await bot.channels.find('name', 'notificação').fetchMessage("621437109034811392");
+                
+                txt.edit(cargo);
+                txt.react("🔔");
+
+                //msg.channel.send("+camii addCargo "+cargo);
+                
+            }
+            return;
+
+           
+
             //const del = msg.content.replace("+camii delCargo","").trim();
 
-            msg.channel.send("+camii addCargo boi");
+            //msg.channel.send("+camii addCargo boi");
+            /* console.log(msg.id);
+            const fi = await bot.channels.find('name', 'notificação').fetchMessage(msg.id);
+            console.log(fi);
+            fi.edit('otario'); */
+
+            // 621437109034811392
+
+
 
             /* if(del != ""){
                 let servidor = bot.guilds.get("239896675664003072");
@@ -75,6 +100,25 @@ bot.on('message', msg =>{
             } */
             return;
         }
+
+
+        /* #### ADD CARGO AO USUARIO */
+
+       /*  const channel = bot.channels.find('name', 'notificação')
+        
+        channel.send('+camii cc').then((msg)=> {
+            console.log(msg.id+" "+msg.content)
+            
+            /* setTimeout(function(){
+                const fi = bot.channels.find('name', 'notificação').fetchMessage(msg.id);
+                console.log(fi);
+              //msg.edit('my others emotes');
+            }, 1000)  
+          }); */
+
+        // id do canal pra postar 621431587015491605
+        // add cargo a usuario
+       // membro.addRole(cargo)
               
        
         //pega o usuario
@@ -91,7 +135,7 @@ bot.on('message', msg =>{
 
 
         //pega o cargo
-        const cargo = servidor.roles.find("name", "toco");
+       // const cargo = servidor.roles.find("name", "toco");
 
         /* console.log(cargo.id);
         console.log(msg.author.id); */
@@ -101,7 +145,7 @@ bot.on('message', msg =>{
            
         
        
-     
+        return;
     }
 })
 
@@ -109,39 +153,41 @@ bot.on('message', msg =>{
 
 
 
-/* bot.on("raw", async dados =>{
+ bot.on("raw", async dados =>{
     if(dados.t !== "MESSAGE_REACTION_ADD" && dados.t !== "MESSAGE_REACTION_REMOVE") return
-    if(dados.d.message_id != "620994508795936798") return;
+    /* pegar o id antes disso de alguma maneira ou comparar no banco de dados o id */
+    if(dados.d.message_id != "621437109034811392") return;
+    
+    
 
     let servidor = bot.guilds.get("239896675664003072");
     let membro = servidor.members.get(dados.d.user_id);
 
-    let cargo1 = servidor.roles.get('616331128340480003'),
-        cargo2 = servidor.roles.get('620996326125076480')
+    let cargo = servidor.roles.find("name", "bola"),
+        cargo2 = ""
+    
+    //const cargo = servidor.roles.find("name", "toco");
+    //let cargo1 = servidor.roles.get('616331128340480003')
 
+   
 
+    
     if(dados.t === "MESSAGE_REACTION_ADD"){
        // if(dados.d.emoji.id === "566966275578789888"){
-        if(dados.d.emoji.name === "👌"){
-            if(membro.roles.has(cargo1)) return
-            membro.addRole(cargo1)
-        }else if(dados.d.emoji.name === "😋"){
-            if(membro.roles.has(cargo2)) return
-            membro.addRole(cargo2)
+        if(dados.d.emoji.name === "🔔"){
+            if(membro.roles.has(cargo)) return
+            membro.addRole(cargo)
         }
     }
-
+ 
     if(dados.t === "MESSAGE_REACTION_REMOVE"){
         // if(dados.d.emoji.id === "566966275578789888"){
-         if(dados.d.emoji.name === "👌"){
-             if(membro.roles.has(cargo1)) return
-             membro.removeRole(cargo1)
-         }else if(dados.d.emoji.name === "😋"){
-             if(membro.roles.has(cargo2)) return
-             membro.removeRole(cargo2)
+         if(dados.d.emoji.name === "🔔"){
+             if(membro.roles.has(cargo)) return
+             membro.removeRole(cargo)
          }
-     }
-}) */
+     } 
+}) 
 
 
 
